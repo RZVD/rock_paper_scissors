@@ -1,4 +1,6 @@
 const NUMBER_OF_ROUNDS = 5;
+const display = document.querySelector('.disp_results');
+let roundOut;
 
 function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -11,17 +13,21 @@ function computerPlay(){
         case 0:
             move = 'rock';
             break;
-        case 1:
-            move = 'paper';
-            break;
-        case 2:
-            move = 'scissors';
-            break;
+            case 1:
+                move = 'paper';
+                break;
+                case 2:
+                    move = 'scissors';
+                    break;
     } 
     return move;
 }
 
-function playRound(playerSelection, computerSelection){
+function displayResults(string){
+    display.textContent = string;
+
+}
+function playRound(playerSelection, computerSelection = computerPlay()){
     playerSelection = playerSelection.toLowerCase(); // insensitive input
     let output = "";
     let won = false;
@@ -76,11 +82,11 @@ function playRound(playerSelection, computerSelection){
             }
             break;
     }
-
+    displayResults(output);
     return [output, won];
 }
-
-function game(){
+ 
+/*function game(){
     let playerScore = 0;
     let computerScore = 0;
 
@@ -98,6 +104,15 @@ function game(){
         }    
     }
     return [playerScore, computerScore];
-}
+}*/
 
-console.log(game());
+let buttons = document.querySelectorAll('button');
+buttons.forEach( (button) => {
+    button.addEventListener('click', () =>{
+        roundOut = playRound(button.id);
+    });
+});
+
+
+
+
