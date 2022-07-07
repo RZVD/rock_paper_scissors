@@ -28,11 +28,13 @@ function playRound(playerSelection, computerSelection){
     switch (playerSelection) {
         case 'rock':
             if(computerSelection == "scissors") {
-                output = "You won! " + playerSelection + " beats " + computerSelection;
+                output = "You won! " + playerSelection + 
+                    " beats " + computerSelection;
                 won = 1;
             }
             else if(computerSelection == "paper") {
-                output = "You lose! " + computerSelection + " beats " + playerSelection;
+                output = "You lose! " + computerSelection + 
+                    " beats " + playerSelection;
                 won = -1;
             }
             else{ 
@@ -42,11 +44,13 @@ function playRound(playerSelection, computerSelection){
             break;
         case 'paper':
             if(computerSelection == "rock") {
-                output = "You won! " + playerSelection + " beats " + computerSelection;
+                output = "You won! " + playerSelection + 
+                    " beats " + computerSelection;
                 won = 1;
             }
             else if(computerSelection == "scissors") {
-                output = "You lose! " + computerSelection + " beats " + playerSelection;
+                output = "You lose! " + computerSelection + 
+                    " beats " + playerSelection;
                 won = -1;
             }
             else{ 
@@ -57,11 +61,13 @@ function playRound(playerSelection, computerSelection){
             break;
         case 'scissors':
             if(computerSelection == "paper") {
-                output = "You won! " + playerSelection + " beats " + computerSelection;
+                output = "You won! " + playerSelection +
+                     " beats " + computerSelection;
                 won = 1;
             }
             else if(computerSelection == "rock") {
-                output = "You lose! " + computerSelection + " beats " + playerSelection;
+                output = "You lose! " + computerSelection + 
+                    " beats " + playerSelection;
                 won = -1;
             }
             else{ 
