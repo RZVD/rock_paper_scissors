@@ -1,9 +1,8 @@
 const NUMBER_OF_ROUNDS = 5;
 const display = document.querySelector('.disp_results');
 let playerScore = 0;
-let output = "";
 let computerScore = 0;
-
+let output = "";
 
 function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -16,17 +15,17 @@ function computerPlay(){
         case 0:
             move = 'rock';
             break;
-            case 1:
-                move = 'paper';
-                break;
-                case 2:
-                    move = 'scissors';
-                    break;
+        case 1:
+            move = 'paper';
+            break;
+        case 2:
+            move = 'scissors';
+            break;
     } 
     return move;
 }
 
-function displayResults(string, won){
+function displayResults(string){
     display.textContent = string + " " + playerScore + "-" + computerScore;
 
 }
@@ -50,7 +49,7 @@ function updateScore(won){
         }
     }
 }
-    
+
 function playRound(playerSelection, computerSelection = computerPlay()){
     playerSelection = playerSelection.toLowerCase(); // insensitive input
     let won = false;
@@ -105,28 +104,9 @@ function playRound(playerSelection, computerSelection = computerPlay()){
             }
             break;
     }
-    updateScore(won, output);
-    displayResults(output, won);
-    return [output, won];
+    updateScore(won);
+    displayResults(output);
 }
- 
-/*function game(){
-
-    for(let i = 0; i < NUMBER_OF_ROUNDS; i++){
-        let choice = String(prompt("Choose your weapon"));
-        let data = playRound(choice, computerPlay());
-        
-        switch (data[1]) {
-            case -1:
-                computerScore++;
-                break;
-            case 1:
-                playerScore++;
-                break;
-        }    
-    }
-    return [playerScore, computerScore];
-}*/
 
 let buttons = document.querySelectorAll('button');
 buttons.forEach( (button) => {
