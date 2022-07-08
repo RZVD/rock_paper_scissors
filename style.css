@@ -26,6 +26,8 @@ button{
     aspect-ratio: 1;
     background-color: transparent;
     border: none;
+    justify-content: center;
+    align-items: center;
     }
 img{
     width : max(10vw, 75px);
@@ -38,11 +40,11 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 15 px;
     height: min(10vh, 50px);
     width: 100%;
     font-family: fantasy;
     justify-self: flex-end;
+    font-size: calc(10px + 1vw);
     background-color: teal;
     margin-top: auto;
 }
@@ -60,10 +62,8 @@ footer>.p{
     justify-content: center;
     align-items: center;
     white-space: pre-line;
-   /*  text-align: center;
-    text-justify: center; */
     width: 100vw;
-    height: min(50vw, 200px);
+    height: min(50vw, 150px);
     font-family: 'Press Start 2P';
 
 }
@@ -73,4 +73,15 @@ footer>.p{
     align-items: center;
     justify-content: center;
     gap: max(25px,10vw);
+}
+.reset{
+    display: flex;
+    margin-top: calc(30px + 5vh);
+    border : none;
+    margin-bottom: 0px;
+}
+.reset>img{
+    width : max(13vw, 125px);
+    height: max(13vw, 125px);
+    margin-bottom: 0px;
 }

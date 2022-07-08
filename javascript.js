@@ -19,7 +19,9 @@ function getRandomInteger(min, max) {
 }
 
 function reset(){
-    output = '';
+    computerScore = 0;
+    playerScore = 0;
+    displayResults('', true);
 }
 
 
@@ -40,8 +42,9 @@ function computerPlay(){
     return move;
 }
 
-function displayResults(string){
-    text.textContent = string + '\n' + playerScore + "-" + computerScore;
+function displayResults(string, reset = false){
+    if(!reset) text.textContent = string + '\n' + playerScore + "-" + computerScore;
+    else text.textContent = '';    
     if(!display.hasChildNodes()) display.appendChild(text);
     else display.replaceChild(text, text);
 }
@@ -131,7 +134,7 @@ buttons.forEach( (button) => {
     });
 });
 let resetButton = document.querySelector('.reset');
-reset.addEventListener('click', () =>{
+resetButton.addEventListener('click', () =>{
     reset();
 });
 
