@@ -1,12 +1,27 @@
 const NUMBER_OF_ROUNDS = 5;
 const display = document.querySelector('.disp_results');
+const text = document.createElement('p');
+display.style.whiteSpace = 'pre-line'; 
+const footer = document.querySelector('footer');
+footer.style.fontFamily = 'monospace';
+let copyright = 'Copyright© Fucă Răzvan ' + new Date().getFullYear();
+let copyrightP = document.createElement('p');
+copyrightP.textContent = copyright;
+footer.appendChild(copyrightP);
+footer.textContent = copyright; 
 let playerScore = 0;
 let computerScore = 0;
 let output = "";
 
+
 function getRandomInteger(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 }
+
+function reset(){
+    output = '';
+}
+
 
 function computerPlay(){
     let outcome = getRandomInteger(0, 3);
@@ -26,8 +41,9 @@ function computerPlay(){
 }
 
 function displayResults(string){
-    display.textContent = string + " " + playerScore + "-" + computerScore;
-
+    text.textContent = string + '\n' + playerScore + "-" + computerScore;
+    if(!display.hasChildNodes()) display.appendChild(text);
+    else display.replaceChild(text, text);
 }
 function updateScore(won){
     
@@ -37,11 +53,11 @@ function updateScore(won){
     }
     else{
         switch (won) {
-        case -1:
+        case 1:
             playerScore += 1;
             if(playerScore === 5) output = "Player Won";
             break;
-        case 1:
+        case -1:
             computerScore += 1;
             if(computerScore === 5) output = "Computer Won";        
             break;
@@ -66,7 +82,7 @@ function playRound(playerSelection, computerSelection = computerPlay()){
                 won = -1;
             }
             else{ 
-                output = "Tie";
+                output = " Tie ";
                 won = 0;
             }
             break;
@@ -82,7 +98,7 @@ function playRound(playerSelection, computerSelection = computerPlay()){
                 won = -1;
             }
             else{ 
-                output = "Tie";
+                output = " Tie ";
                 won = 0;
             }
               
@@ -99,7 +115,7 @@ function playRound(playerSelection, computerSelection = computerPlay()){
                 won = -1;
             }
             else{ 
-                output = "Tie";
+                output = " Tie ";
                 won = 0;
             }
             break;
@@ -108,11 +124,15 @@ function playRound(playerSelection, computerSelection = computerPlay()){
     displayResults(output);
 }
 
-let buttons = document.querySelectorAll('button');
+let buttons = document.querySelectorAll('.controls>button');
 buttons.forEach( (button) => {
     button.addEventListener('click', () =>{
         roundOut = playRound(button.id);
     });
+});
+let resetButton = document.querySelector('.reset');
+reset.addEventListener('click', () =>{
+    reset();
 });
 
 

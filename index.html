@@ -6,17 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src ="javascript.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet">
 </head>
 <body>
-    <div id="container">
-        <button id="rock">Rock</button>
-        <button id="paper">Paper</button>
-        <button id="scissors">Scissors</button>
-        
-        <div class="disp_results">
-
-        </div>
     
+    <header><p>ROCK PAPER SCISSORS</p></header>
+    <div class="disp_results"></div>
+    <div class="controls">
+        <button id="rock">
+            <img src="images/ROCK.png" alt="rock"> 
+        </button>
+        <button id="paper">
+            <img src="images/PAPER.png" alt="paper">
+        </button>
+        <button id="scissors">
+            <img src="images/SCISSORS.png" alt="scissors">
+        </button>
     </div>
+    <button class="reset">Reset</button>
+    
+    <footer class="footer"></footer>
+    
+    
 </body>
 </html>
